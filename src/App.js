@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Component } from "react";
+import Container from "./components/Container/Container";
+import Feedback from "./components/Feedback/Feedback";
+import Statistics from "./components/Statistics/Statistics";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    value: 0,
+  };
+
+  render() {
+    return (
+      <Container>
+        <h1>Please leave feedback</h1>
+
+        <Feedback />
+
+        {/* <Statistics
+          good={this.state.value}
+          neutral={this.state.value}
+          bad={this.state.value}
+        /> */}
+      </Container>
+    );
+  }
 }
 
 export default App;
