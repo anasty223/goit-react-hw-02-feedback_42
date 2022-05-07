@@ -4,75 +4,59 @@ class Feedback extends Component {
   state = {
     good: 0,
     neutral: 0,
-      bad: 0,
-    total:0,
+    bad: 0,
+    total: 0,
   };
-    countTotalFeedback = () => {
-        const { good, neutral, bad } = this.state;
 
-        this.setState({total:good+neutral+bad})
-    }
-       
-  handleChangeGood = () => {
-    this.setState((prevState) => ({
-      good: prevState.good + 1,
-    }));
-  };
-  handleChangeNeutral = () => {
-    this.setState((prevState) => ({
-  neutral: prevState.neutral + 1,
-   }));
-  };
-  handleChangeBad = () => {
-    this.setState((prevState) => ({
-     bad: prevState.bad + 1,
- }));
+  countTotalFeedback = () => {
+    const {good, neutral, bad} = this.state;
+    return good+neutral+bad
+  }
+
+  handleClick = (e) => {
+    this.setState((prevState) => {
+      return { [e.target.name]: prevState[e.target.name] + 1 };
+    });
   };
 
   render() {
     return (
       <>
         <div>
-                <p>Total: {this.state.total} </p>
+          <p>Total: {this.state.total} </p>
           <span>
-           
-            {this.state.good}
+            {<p>Good: {this.state.good}</p>}
             <button
+              value={this.state.good}
+              name="good"
               type="submit"
-              onClick={this.handleChangeGood}
-            onSubmit={this.handleSubmit}
-            
-            onChange={this.countTotalFeedback}
+              onClick={this.handleClick}
             >
               Good
             </button>
           </span>
         </div>
         <div>
-     
           <span>
-     
-            {this.state.neutral}
+            {<p>Neutarl: {this.state.neutral}</p>}
             <button
+              value={this.state.neutral}
+              name="neutral"
               type="submit"
-              onClick={this.handleChangeNeutral}
-              onSubmit={this.handleSubmit}
-             onChange={this.countTotalFeedback}
+              onClick={this.handleClick}
             >
               Neutral
             </button>
           </span>
         </div>
         <div>
-       
           <span>
-       
-            {this.state.bad}
+            {<p>Bad: {this.state.bad}</p>}
             <button
+              // value={this.state.bad}
+              name="bad"
               type="submit"
-              onClick={this.handleChangeBad}
-                        onSubmit={this.handleSubmit}
-                        onChange={this.countTotalFeedback}
+              onClick={this.handleClick}
             >
               Bad
             </button>
