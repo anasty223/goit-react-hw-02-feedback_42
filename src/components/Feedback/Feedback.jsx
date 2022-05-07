@@ -6,6 +6,11 @@ class Feedback extends Component {
     neutral: 0,
     bad: 0,
     total: 0,
+    positiveFeedback:0,
+  };
+
+ countPositiveFeedbackPercentage = () => {
+    return Math.round((this.state.good / this.countTotalFeedback()) * 100);
   };
 
   countTotalFeedback = () => {
@@ -23,14 +28,17 @@ class Feedback extends Component {
     return (
       <>
         <div>
-          <p>Total: {this.state.total} </p>
+          <p>Total feedback: {this.countTotalFeedback()} </p>
+          <p>Positive:{this.countPositiveFeedbackPercentage()} %</p>
           <span>
             {<p>Good: {this.state.good}</p>}
+          
             <button
               value={this.state.good}
               name="good"
               type="submit"
               onClick={this.handleClick}
+             
             >
               Good
             </button>
