@@ -7,8 +7,7 @@ class Feedback extends Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    total: 0,
-    positiveFeedback: false,
+
   };
 
   countPositiveFeedbackPercentage = () => {
@@ -29,16 +28,17 @@ class Feedback extends Component {
   render() {
     return (
       <div>
-        <p>Total feedback: {this.countTotalFeedback()} </p>
+      
 
-        <p>Positive feedback:{this.countPositiveFeedbackPercentage()} % </p>
-
+      
         <Button onHandleClick={this.handleClick} />
         <Statistics
           good={this.state.good}
           neutral={this.state.neutral}
           bad={this.state.bad}
-          countTotalFeedback={this.countTotalFeedback()}
+          onCountTotalFeedback={this.countTotalFeedback()}
+          countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage}
+    countTotalFeedback={this.countTotalFeedback}
         />
       </div>
     );
