@@ -12,15 +12,7 @@ class App extends Component {
   render() {
     return (
       <Container>
-        <h1>Please leave feedback</h1>
-
         <Feedback />
-
-        {/* <Statistics
-          good={this.state.value}
-          neutral={this.state.value}
-          bad={this.state.value}
-        /> */}
       </Container>
     );
   }

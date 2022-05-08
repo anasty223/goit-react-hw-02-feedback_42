@@ -1,4 +1,6 @@
 import { Component } from "react";
+import Statistics from "../Statistics/Statistics";
+import Button from "../FeedbackOptions/Buttons-FeedbackOptions";
 
 class Feedback extends Component {
   state = {
@@ -6,17 +8,17 @@ class Feedback extends Component {
     neutral: 0,
     bad: 0,
     total: 0,
-    positiveFeedback:0,
+    positiveFeedback: false,
   };
 
- countPositiveFeedbackPercentage = () => {
+  countPositiveFeedbackPercentage = () => {
     return Math.round((this.state.good / this.countTotalFeedback()) * 100);
   };
 
   countTotalFeedback = () => {
-    const {good, neutral, bad} = this.state;
-    return good+neutral+bad
-  }
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+  };
 
   handleClick = (e) => {
     this.setState((prevState) => {
@@ -26,51 +28,19 @@ class Feedback extends Component {
 
   render() {
     return (
-      <>
-        <div>
-          <p>Total feedback: {this.countTotalFeedback()} </p>
-          <p>Positive:{this.countPositiveFeedbackPercentage()} %</p>
-          <span>
-            {<p>Good: {this.state.good}</p>}
-          
-            <button
-              value={this.state.good}
-              name="good"
-              type="submit"
-              onClick={this.handleClick}
-             
-            >
-              Good
-            </button>
-          </span>
-        </div>
-        <div>
-          <span>
-            {<p>Neutarl: {this.state.neutral}</p>}
-            <button
-              value={this.state.neutral}
-              name="neutral"
-              type="submit"
-              onClick={this.handleClick}
-            >
-              Neutral
-            </button>
-          </span>
-        </div>
-        <div>
-          <span>
-            {<p>Bad: {this.state.bad}</p>}
-            <button
-              // value={this.state.bad}
-              name="bad"
-              type="submit"
-              onClick={this.handleClick}
-            >
-              Bad
-            </button>
-          </span>
-        </div>
-      </>
+      <div>
+        <p>Total feedback: {this.countTotalFeedback()} </p>
+
+        <p>Positive feedback:{this.countPositiveFeedbackPercentage()} % </p>
+
+        <Button onHandleClick={this.handleClick} />
+        <Statistics
+          good={this.state.good}
+          neutral={this.state.neutral}
+          bad={this.state.bad}
+          countTotalFeedback={this.countTotalFeedback()}
+        />
+      </div>
     );
   }
 }

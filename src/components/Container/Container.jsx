@@ -7,7 +7,9 @@ import styled from 'styled-components';
 `
 
 export function Container({ children }) {
-  return <Div >{children}</Div>;
+  return <Div >
+    <h1>Please leave feedback</h1>
+{children}</Div>;
 }
 
 export default Container;
