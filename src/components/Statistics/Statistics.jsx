@@ -1,9 +1,9 @@
 import Notification from "../Notification/Notification";
 import {List,Name} from './Statistics.styles'
 
-const Statistics = ({good,neutral,bad,onCountTotalFeedback,countPositiveFeedbackPercentage,countTotalFeedback}) => {
+const Statistics = ({good,neutral,bad,countTotal,positiveFeedback }) => {
     return <>
-   { onCountTotalFeedback ? (<List>
+   { countTotal ? (<List>
           <li>
             {<Name>Good: {good}</Name>}
 
@@ -17,11 +17,11 @@ const Statistics = ({good,neutral,bad,onCountTotalFeedback,countPositiveFeedback
      
         </li>
         <li>
-            <Name>Positive feedback:{countPositiveFeedbackPercentage()} % </Name>
+            <Name>Positive feedback:{positiveFeedback } % </Name>
 
         </li>
         <li>
-            <Name>Total feedback: {countTotalFeedback()} </Name>
+            <Name>Total feedback: {countTotal} </Name>
         </li>
     </List>): ( <Notification message="There is no feedback" />)}
     </>

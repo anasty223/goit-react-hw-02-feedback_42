@@ -5,15 +5,11 @@ import Feedback from "./components/Feedback/Feedback";
 import Statistics from "./components/Statistics/Statistics";
 
 class App extends Component {
-  state = {
-    value: 0,
-  };
-
   render() {
     return (
-      <Container>
+      <>
         <Feedback />
-      </Container>
+      </>
     );
   }
 }

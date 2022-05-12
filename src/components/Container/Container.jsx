@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from "prop-types";
 
  const Div = styled.div`
   padding: 4em;
@@ -6,10 +7,15 @@ import styled from 'styled-components';
 
 `
 
-export function Container({ children }) {
+export function Container({ title,children }) {
   return <Div >
-    <h1>Please leave feedback</h1>
+ 
+    <h1>{title}</h1>
 {children}</Div>;
 }
+Container.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node,
+};
 
 export default Container;
