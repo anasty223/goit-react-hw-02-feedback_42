@@ -26,4 +26,10 @@ const Statistics = ({good,neutral,bad,countTotal,positiveFeedback }) => {
     </List>): ( <Notification message="There is no feedback" />)}
     </>
 }
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+};
+
 export default Statistics;
