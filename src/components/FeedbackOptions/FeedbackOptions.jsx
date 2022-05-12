@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { ButtonName } from './FeedbackOptions.styles'
 const FeedbackOptions = ({options,onLeaveFeedback}) => {
    return (
@@ -14,16 +16,10 @@ const FeedbackOptions = ({options,onLeaveFeedback}) => {
       ))}
     </ul>
   );
-    // return (<>
-    //     <ButtonName name="good" type="submit" onClick={onHandleClick}>
-    //     Good
-    //     </ButtonName>
-    // <ButtonName name="neutral" type="submit" onClick={onHandleClick}>
-    //           Neutral
-    //     </ButtonName>
-    //   <ButtonName name="bad" type="submit" onClick={onHandleClick}>
-    //           Bad
-    //         </ButtonName></>
-    // )
+
 }
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.oneOf(['good', 'neutral', 'bad'])),
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
 export default FeedbackOptions;

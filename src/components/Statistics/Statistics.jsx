@@ -1,5 +1,7 @@
 import Notification from "../Notification/Notification";
-import {List,Name} from './Statistics.styles'
+import { List, Name } from './Statistics.styles'
+import PropTypes from 'prop-types';
+
 
 const Statistics = ({good,neutral,bad,countTotal,positiveFeedback }) => {
     return <>
