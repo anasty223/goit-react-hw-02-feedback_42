@@ -1,11 +1,11 @@
-import Notification from "../Notification/Notification";
+
 import { List, Name } from './Statistics.styles'
 import PropTypes from 'prop-types';
 
 
 const Statistics = ({good,neutral,bad,countTotal,positiveFeedback }) => {
     return <>
-   { countTotal ? (<List>
+ <List>
           <li>
             {<Name>Good: {good}</Name>}
 
@@ -25,7 +25,7 @@ const Statistics = ({good,neutral,bad,countTotal,positiveFeedback }) => {
         <li>
             <Name>Total feedback: {countTotal} </Name>
         </li>
-    </List>): ( <Notification message="There is no feedback" />)}
+    </List>
     </>
 }
 Statistics.propTypes = {

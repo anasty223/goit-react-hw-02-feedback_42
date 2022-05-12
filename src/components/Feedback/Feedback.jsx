@@ -2,6 +2,7 @@ import { Component } from "react";
 import Statistics from "../Statistics/Statistics";
 import FeedbackOptions from "../FeedbackOptions/FeedbackOptions";
 import Container from "../Container/Container";
+import Notification from '../Notification/Notification'
 
 class Feedback extends Component {
   state = {
@@ -40,13 +41,13 @@ onLeaveFeedback = (event) => {
             options={keys}
             onLeaveFeedback={this.onLeaveFeedback}
           />
-          <Statistics
+         {this.countTotalFeedback() ? <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
             countTotal={this.countTotalFeedback()}
             positiveFeedback={this.countPositiveFeedbackPercentage()}
-          />
+          />: <Notification message="There is no feedback"/>}
       </Container>
     );
   }
