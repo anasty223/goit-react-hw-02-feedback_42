@@ -1,7 +1,7 @@
 import { Component } from "react";
 import Statistics from "../Statistics/Statistics";
 import FeedbackOptions from "../FeedbackOptions/FeedbackOptions";
-import Container from "../Container/Container";
+import Section from "../Container/Section";
 import Notification from '../Notification/Notification'
 
 class Feedback extends Component {
@@ -21,11 +21,7 @@ class Feedback extends Component {
     return values.reduce((total, value) => total + value);
   };
 
-  // onLeaveFeedback = (e) => {
-  //   this.setState((prevState) => {
-  //     return { [e.target.name]: prevState[e.target.name] + 1 };
-  //   });
-  // };
+
 onLeaveFeedback = (event) => {
     const nameButton = event.currentTarget.textContent;
     this.setState((prevState) => ({
@@ -36,7 +32,7 @@ onLeaveFeedback = (event) => {
     const { good, neutral, bad } = this.state;
      const keys = Object.keys(this.state)
     return (
-      <Container title="Please leave feedback">
+      <Section title="Please leave feedback">
          <FeedbackOptions
             options={keys}
             onLeaveFeedback={this.onLeaveFeedback}
@@ -48,7 +44,7 @@ onLeaveFeedback = (event) => {
             countTotal={this.countTotalFeedback()}
             positiveFeedback={this.countPositiveFeedbackPercentage()}
           />: <Notification message="There is no feedback"/>}
-      </Container>
+      </Section>
     );
   }
 }

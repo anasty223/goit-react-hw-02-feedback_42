@@ -7,15 +7,15 @@ import PropTypes from "prop-types";
 
 `
 
-export function Container({ title,children }) {
+export function Section({ title,children }) {
   return <Div >
  
     <h1>{title}</h1>
 {children}</Div>;
 }
-Container.propTypes = {
+Section.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.node,
 };
 
-export default Container;
+export default Section;
